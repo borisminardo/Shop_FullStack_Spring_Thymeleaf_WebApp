@@ -1,0 +1,76 @@
+<html>
+<header th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+			data-toggle="collapse" data-target="#navbar">
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Home Page</a>
+			<a class="navbar-brand" th:href="@{/admin/}">Admin Page</a>
+			
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+				
+		<ul th:if="${utente_log?.getUsername()} != null"
+		class="nav navbar-nav">
+			<li><a href="/acquisti">Acquista</a></li>
+			<li><a href="/carrello">Riepilogo carrello</a></li>
+		</ul>
+
+		<ul th:if="${utente_log?.getUsername()} != null"
+		class="nav navbar-nav navbar-right">
+			<li>
+			<a href="/carrello">
+			<span class="glyphicon glyphicon-shopping-cart">&nbsp;</span> 
+			<span class="badge"> 
+			<th:block
+			th:text="${_carrello?.getArticoli()} ?${_carrello.getArticoli()} : '0'">
+			</span>
+			</a>
+			</li>
+			<li class="dropdown">
+			<li>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+			role="button"> 
+			<span class="glyphicon glyphicon-user">&nbsp;</span>
+			<span class="badge"> 
+			<th:block
+			th:text="${utente_log?.getUsername()} ?${utente_log.getUsername()} : ' '">
+			</span>
+			</a>
+			<ul class="dropdown-menu">
+			<li><a th:href="@{|/edit/${username}|}">Modifica dati utente</a></li>
+			<li><a href="/ordini">Elenco ordini</a></li>
+			</ul>
+			</li>
+
+			<li>
+			<a href="logout"> 
+			<span class="glyphicon glyphicon-off"></span> 
+			Logout
+			</a>
+			</li>
+			</ul>
+
+			<ul th:if="${utente_log?.getUsername()} == null"
+			class="nav navbar-nav navbar-right">
+			<li>
+			<a href="registrazione"> 
+			<span class="glyphicon glyphicon-user"></span> Sign-Up
+			</a>
+			</li>
+			<li>
+			<a href="login"> 
+			<span class="glyphicon glyphicon-log-in"></span> Login
+			</a>
+			</li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+</html>

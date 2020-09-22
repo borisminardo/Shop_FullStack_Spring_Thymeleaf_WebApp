@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/cdn :: cdn">
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h3>Aggiungi Articolo</h3>
+		</div>
+		<form th:action="@{/add}" th:object="${articolo}" method="POST"
+			id="articoloForm" class="form-verticaly">
+			<div class="form-group col-md-7">
+				<label for="Marca">Marca</label> <input class="form-control"
+					type="text" th:field="*{marca}" placeholder="Marca...">
+			</div>
+			<div class="form-group col-md-7">
+				<label for="Marca">Modello</label> <input class="form-control"
+					type="text" th:field="*{modello}" placeholder="Modello...">
+			</div>
+			<div class="form-group col-md-7">
+				<label for="Marca">Prezzo</label> <input class="form-control"
+					type="number" th:field="*{prezzo}" placeholder="prezzo...">
+			</div>
+			<div class="form-group col-md-7">
+				<button type="submit" class="btn btn-info btn-xl">Aggiungi
+					Articolo</button>
+			</div>
+		</form>
+	</div>
+	<footer th:include="fragments/footerAd :: footer"></footer>
+</body>
+</html>

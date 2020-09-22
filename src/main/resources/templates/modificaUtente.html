@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/cdn :: cdn">
+</head>
+<body>
+<div th:insert="fragments/nav :: navbar"></div>
+<div class="container">
+	<div class="page-header">
+		<h3>Modifica utente</h3>
+	</div> 
+	<form th:action="@{|/edit/${username}|}" 
+	th:object="${utente}" 
+	method="post" id="userForm" class="form-horizontal">
+	
+	<!-- ---------------------------------Nome -->
+	<div class="form-group"> 
+		<label class="col-md-1 control-label">Nome</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group"> 
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-user"></i>
+				</span>
+				<input type="text" name="nome" id="nome" placeholder="Nome..."
+				class="form-control"
+				th:field="*{nome}"
+				>		
+			</div>
+		</div>	
+		<div class="col-md-7 control-label" id="infoNome"></div>
+	</div>
+	
+	<!-- ---------------------------------Cognome -->
+	<div class="form-group"> 
+		<label class="col-md-1 control-label">Cognome</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group"> 
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-user"></i>
+				</span>
+				<input type="text" name="cognome" placeholder="Cognome..." 
+				id="cognome" class="form-control"
+				th:field="*{cognome}"
+				>		
+			</div>
+		</div>	
+		<div class="col-md-7 control-label" id="infoCognome"></div>
+	</div>
+	
+	<!-- ---------------------------------Indirizzo -->
+	<div class="form-group"> 
+		<label class="col-md-1 control-label">Indirizzo</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group"> 
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-home"></i>
+				</span>
+				<textarea rows="3" cols="50" name="indirizzo" 
+				placeholder="Indirizzo..." id="indirizzo"
+				class="form-control" style="resize: none"
+				th:field="*{indirizzo}"
+				></textarea>	
+			</div>
+		</div>	
+		<div class="col-md-7 control-label" id="infoIndirizzo"></div>
+	</div>
+		
+	<!-- ---------------------------------Cap -->
+	<div class="form-group"> 
+		<label class="col-md-1 control-label">Cap</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group"> 
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-home"></i>
+				</span>
+				<input type="text" name="cap" placeholder="Cap..."
+				class="form-control" maxlength="5" id="cap"
+				th:field="*{cap}"
+				>		
+			</div>
+		</div>	
+		<div class="col-md-7 control-label" id="infoCap"></div>
+	</div>
+	
+	<!-- ---------------------------------Password -->
+	<div class="form-group"> 
+		<label class="col-md-1 control-label">Password</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group"> 
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-lock"></i>
+				</span>
+				<input type="password" name="password" placeholder="Password..."
+				class="form-control" id="password" autocomplete="new-password"
+				th:field="*{password}"
+				>		
+			</div>
+		</div>	
+		<div class="col-md-7 control-label" id="infoPassword"></div>
+	</div>
+	
+	<!-- ---------------------------------mail -->
+	<div class="form-group"> 
+		<label class="col-md-1 control-label">Mail</label>
+		<div class="col-md-4 inputGroupContainer">
+			<div class="input-group"> 
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-envelope"></i>
+				</span>
+				<input type="text" name="mail" placeholder="Mail..."
+				class="form-control" id="mail"
+				th:field="*{mail}"
+				>		
+			</div>
+		</div>	
+		<div class="col-md-7 control-label" id="infoMail"></div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+			<button type="submit" class="btn btn-warning">
+				Modifica&nbsp;<span class="glyphicon glyphicon-send"></span>
+			</button>
+		</div>
+	</div>
+	</form>
+</div>
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/cdn :: cdn">
+</head>
+<body>
+<div th:insert="fragments/nav :: navbar"></div>
+<div class="container">
+	<div class="jumbotron" style="margin-top: 50px;">
+		<h1 class="display-4">Gestione Ordini</h1>
+		<p class="lead">Sezione acquisti on-line</p>
+		<hr>
+		<a class="btn btn-warning btn-lg" href="acquisti" role="button">
+		Visualizza gli articoli in catalogo
+		&nbsp;<i class="fa fa-arrow-circle-o-right bg-lg"></i>
+		</a>
+	</div>
+</div>
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>

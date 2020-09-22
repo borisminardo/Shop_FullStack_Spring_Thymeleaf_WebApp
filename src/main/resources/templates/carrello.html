@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/cdn :: cdn">
+</head>
+<body>
+<div th:insert="fragments/nav :: navbar"></div>
+<div class="container">
+	<div class="page-header">
+		<h3>Riepilogo carrello</h3>
+		<p>Totale:<th:block th:text="${_carrello?.totaleComplessivo()}"/>&euro;
+	</div>
+	<div>
+	<table class="table table-hover">
+		<thead> 
+		<tr>
+			<th style="width:200px;">Marca</th>
+			<th style="width:200px;">Modello</th>
+			<th style="width:200px;">Quantit&agrave;</th>
+			<th style="width:200px;">&nbsp;</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="art : ${listaArticoli}">
+			<td th:text="${art[0]}"></td>
+			<td th:text="${art[1]}"></td>
+			<td th:text="${art[3]}"></td>
+ 			<td>
+			<a th:href="@{|/remove/${art[4]}|}">
+				<button type="button" 
+				class="btn btn-danger btn-sm">
+				<span class="glyphicon glyphicon-trash"></span>
+				</button>
+			</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/checkout}">
+	<button type="button" class="btn btn-warning">
+		Checkout
+	</button>
+	</a>
+</div>
+</div>
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>
+					

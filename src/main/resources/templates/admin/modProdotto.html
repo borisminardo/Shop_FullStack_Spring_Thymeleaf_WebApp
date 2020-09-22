@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/cdn :: cdn">
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+
+
+			<h3>Modifica Articoli:</h3>
+		</div>
+		<form th:action="@{|/edit/{id}|}" th:object="${articolo}" method="POST"
+			id="userForm" class="form-horizontal">
+			<input type="hidden" th:field="*{idArticolo}" name="idArticolo">
+			<!-- ---------------------------------	Marca -->
+			<div class="form-group">
+				<label class="col-md-1 control-label">Marca</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"> <i
+							class="glyphicon glyphicon-tag"></i>
+						</span> <input type="text" name="marca" id="marca" placeholder="Marca..."
+							class="form-control" th:field="*{marca}">
+					</div>
+				</div>
+				<div class="col-md-7 control-label" id="infoMarca"></div>
+			</div>
+
+			<!-- ---------------------------------Modello -->
+			<div class="form-group">
+				<label class="col-md-1 control-label">Modello</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"> <i
+							class="glyphicon glyphicon-camera"></i>
+						</span> <input type="text" name="modello" placeholder="Modello..."
+							id="modello" class="form-control" th:field="*{modello}">
+					</div>
+				</div>
+				<div class="col-md-7 control-label" id="infoModello"></div>
+			</div>
+
+			<!-- ---------------------------------Prezzo -->
+			<div class="form-group">
+				<label class="col-md-1 control-label">Prezzo</label>
+				<div class="col-md-4 inputGroupContainer">
+					<div class="input-group">
+						<span class="input-group-addon"> <i
+							class="glyphicon glyphicon-euro"></i>
+						</span> <input type="text" name="prezzo" placeholder="Prezzo..."
+							id="indirizzo" class="form-control" th:field="*{prezzo}">
+					</div>
+				</div>
+				<div class="col-md-7 control-label" id="infoPrezzo"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-1">
+					<button type="submit" class="btn btn-warning">
+						Inserisci&nbsp;<span class="glyphicon glyphicon-send"></span>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

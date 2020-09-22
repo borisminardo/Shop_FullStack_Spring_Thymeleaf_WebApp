@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/cdn :: cdn">
+</head>
+<body>
+<div th:insert="fragments/nav :: navbar"></div>
+<div class="container">
+	<div class="page-header">
+		<h3>Logout</h3>
+	</div>
+	<div>
+		<h3>Sei sicuro di effettuare il logout?</h3>
+		
+		<div class="btn-group" role="group" style="margin-top: 20px;">
+		
+		<button type="button" class="btn btn-warning"
+		onclick="document.location.href='/logoututente'"
+		style="width: 200px;">
+		Logout
+		</button>
+		<button type="button" class="btn btn-default"
+		onclick="document.location.href='/acquisti'"
+		style="width: 200px;">
+		Torna agli acquisti
+		</button>
+	</div> 
+	</div>
+</div>
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>
+	
